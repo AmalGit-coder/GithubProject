@@ -1,0 +1,51 @@
+<div class="add-post-content">
+    <div class="container">
+      <div>
+        <h3 class="new-post-title">Create New Post</h3>
+      </div>
+      <hr>
+      <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+        <div class="form-group">
+          <label class="post-title">Title</label>
+          <input type="text" [formControlName]="'title'" class="form-control" placeholder="Title">
+        </div>
+<div class="row">
+        <div class="form-group col-md-9">
+          <label class="post-content">Sous Titre</label>
+          <input type="text" [formControlName]="'content'" class="form-control" placeholder="Title">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label class="post-type">Domaine</label>
+          <input type="text" [formControlName]="'type'" class="form-control" placeholder="Title">
+        </div>
+
+      </div>
+       
+        <div class="form-group">
+          <label class="post-description">Body</label>
+          <editor [formControlName]="'description'" [init]="{plugins: 'link'}"></editor>
+        </div>
+
+
+        <div class="form-group">
+          <label class="post-imageBlog">Image upload</label>
+          <!-- <input type="file"  [formControlName]="'imageBlog'" class="form-control" name="imageBlog"/> -->
+
+          <input type="file" [formControlName]="'imageBlog'" class="form-control" name="imageBlog" multiple/>
+    </div>
+    
+    
+       <div class="form-group">
+          <button type="submit" class="btn btn-primary">Post</button>
+        </div>
+      </form >
+    </div>
+  </div>
+
+
+
+  <!-- <app-upload-files></app-upload-files> -->
+<!-- 
+  <app-upload-files   type="file" #fileUpload id="imageBlog" [formControlName]="'imageBlog'"
+  name="imageBlog" multiple="multiple" accept="image/*"></app-upload-files> -->

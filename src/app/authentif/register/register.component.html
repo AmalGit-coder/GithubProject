@@ -1,0 +1,220 @@
+<section class="register-area">
+    <div class="row m-0">
+       
+
+        <div class="col-lg-12 col-md-12 p-0">
+            <div class="register-content">
+                <div class="d-table">
+                    <div class="d-table-cell">
+                        <div class="register-form">
+                            <div class="logo">
+                                <a routerLink="/"><img src="assets/img/logo.png" width="120px" height="100px" alt="image"></a>
+                            </div>
+                            <h3>S'inscrire sur TWE</h3>
+
+
+
+
+                            <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+
+
+                                <div class="payment-box">
+                                    <div class="payment-method row" >
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        &nbsp; &nbsp; 
+                                        <p > 
+                                            <input type="radio" id="roleRecruteur" formControlName="role"  value="recruteur" name="role" checked>
+                                            <label class="form-check-label" for="roleRecruteur">Recruteur </label>
+        
+                                        </p>
+                                        &nbsp; &nbsp;  
+                                        <p>
+                                            <input type="radio"  id="roleCandidate" formControlName="role" name="role" value="candidate">
+                                           
+                                            <label class="form-check-label" for="roleCandidate" >Candidate</label>
+                                        </p>
+                                                            
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div class="form-group">
+                                    <label for="inputUsername" class="sr-only">Username</label>
+                                    <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control" placeholder="Nom complet" required="" autofocus="">
+                                </div>
+
+
+                                
+
+
+
+
+                                <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail" class="sr-only">Email</label>
+                                    <input type="text" id="inputEmail" [formControlName]="'email'" class="form-control" placeholder="Email " required="" autofocus="">
+                                </div> 
+                                <div class="form-group col-md-6">
+                                    <label for="inputAdresse" class="sr-only">adresse </label>
+                                    <input type="text" id="inputAdresse" [formControlName]="'adresse'" class="form-control" placeholder="Adresse" required="" autofocus="">
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword" class="sr-only">Mot De </label>
+                                    <input type="password" id="inputPassword" [formControlName]="'password'" class="form-control" placeholder="Mot de passe" required="" autofocus="">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputConfirmPassword" class="sr-only">ConfirmPassword</label>
+                                    <input type="password" id="inputConfirmPassword" [formControlName]="'confirmPassword'" class="form-control" placeholder="Confirmer votre mot de passe" required="" autofocus="">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-8">
+                                    <label for="inputPoste" class="sr-only">Poste</label>
+                                    <input type="text" id="inputPoste" [formControlName]="'poste'" class="form-control" placeholder="Poste" required="" autofocus="">
+                                </div>
+    
+                                <div class="form-group col-md-4">
+                                    <label for="inputPoste" class="sr-only">EXpérience</label>
+                                    <input type="number" id="inputExperience"  [formControlName]="'experience'" class="form-control" placeholder="experience" min="0" required="" autofocus=""/>
+    
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+
+
+
+    <!-- //erreur dans le console [ngControl] checkit --> 
+
+    <ngx-recaptcha2 #captchaElem
+    [siteKey]="siteKey">
+    
+    </ngx-recaptcha2>
+
+<br>
+                                <button class="btn btn-lg btn-success btn-block" type="submit">S'inscrire </button>
+                                <p>Vous avez déja un compte? <a routerLink="/login">Se Connecter</a></p>
+
+
+                                <!-- <button type="submit">Sign Up</button> -->
+                                <div class="connect-with-social">
+                                    <span>OU</span>
+                                    <button type="submit" class="facebook" (click)=" signInWithFB()"><i class='bx bxl-facebook'></i> Connect with Facebook</button>
+                                    <button type="submit" class="google" (click)=" signInWithGoogle()"><i class='bx bxl-google'></i> Connect with Google</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form>
+                <fieldset>
+                    
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> NOM:  </label>
+                        <input required type="text" [(ngModel)]="user.nom" name="nom" id="nom"
+                            class="form-control nom" maxlength="28" placeholder="Enter your fullname..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span> PRENOM:  </label>
+                        <input required type="text" [(ngModel)]="user.prenom" name="prenom" id="prenom"
+                            class="form-control prenom" maxlength="28" placeholder="Enter your fullname..." />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="firstname"><span class="req">* </span> Email: </label>
+                        <input class="form-control" type="text" [(ngModel)]="user.emailId" name="emailId" id="emailId" required
+                            placeholder="Enter valid email address" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastname"><span class="req">* </span> Telephone : </label>
+                        <input class="form-control" type="number" [(ngModel)]="user.telephone" name="telephone" id="telephone"
+                            placeholder="Total year of experience" required />
+                        <div id="errLast"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mdp"><span class="req">* </span> MDP: </label>
+                        <input class="form-control" required type="password" [(ngModel)]="user.mdp" name="mdp"
+                            id="mdp" placeholder="fullstack/backend/developer" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="mdp"><span class="req">* </span>Confirmer MDP: </label>
+                        <input class="form-control" required type="password" [(ngModel)]="user.cmdp" name="cmdp"
+                            id="cmdp" placeholder="fullstack/backend/developer" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cr"><span class="req">* </span>type: </label>
+                        <input class="form-control" required type="text" [(ngModel)]="user.type" name="type"
+                            id="type" placeholder="fullstack/backend/developer" />
+                        <div class="status" id="status"></div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register" (click)="registerNow()">
+                    </div>
+                </fieldset>
+</form>
+        </div>
+
+    </div>
+</div>
+
+
+<div> {{ message}}</div> -->

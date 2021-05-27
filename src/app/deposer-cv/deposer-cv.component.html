@@ -1,0 +1,208 @@
+
+
+<app-header-style-one></app-header-style-one>
+
+<div class="container p-0">
+    <div class="row">
+        <div class="col-md-5 col-xl-4">
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Paramétres</h5>
+                </div>
+
+                <div class="list-group list-group-flush" role="tablist">
+                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account" role="tab">
+                    Infos
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#coordonnees" role="tab">
+                   Coordonnées
+                    </a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
+                      Mot De Passe
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7 col-xl-8">
+            <div class="tab-content">
+
+                <div class="tab-pane fade show active" id="account" role="tabpanel">
+
+                    <div class="card">
+                  
+                        <div class="card-body">
+                            <form (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="username">Nom Complet</label>
+                                            <input type="text" class="form-control" id="userName" [(ngModel)] ="currentUser.username" name="userName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputapropos">A propos de moi </label>
+                                        <input class="form-control" id="apropos" [(ngModel)] ="currentUser.apropos" name="apropos"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <img alt="Andrew Jones" id="imageUrl"  name="imageUrl" 
+                                            src="{{currentUser.imageUrl}}" class="rounded-circle img-responsive mt-2" width="128" height="128">
+                                            <div class="mt-2">
+                                                <span class="btn btn-primary"><i class="fa fa-upload"></i></span>
+                                            </div>
+                                            <small>For best results, use an image at least 128px by 128px in .jpg format</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button type="button" (click)="onSubmit()" id="submit" name="submit" class="btn btn-primary">Save changes</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade show active" id="coordonnees" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">                           
+                            <h5 class="card-title mb-0">Coordonnées </h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                    <div class="form-group ">
+                                        <label for="inputFirstName">Email</label>
+                                        <input type="email" class="form-control" id="email" [(ngModel)] ="currentUser.email" name="email">
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-group col-md-8">
+                                        <label for="inputPoste">Poste</label>
+                                        <input type="text" class="form-control" id="poste" [(ngModel)] ="currentUser.poste" name="poste">
+                                    </div>
+                               
+                                <div class="form-group col-md-4">
+                                    <label for="inputExperience">Années d'expériences</label>
+                                    <input type="number" class="form-control" id="experience" [(ngModel)] ="currentUser.experience" name="experience">
+                                </div>
+                            </div>
+                        
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputCity">Adresse</label>
+                                        <input type="text" class="form-control" id="adresse" [(ngModel)] ="currentUser.adresse" name="adresse">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputPays">Pays</label>
+                                        <input type="text" class="form-control" id="pays" [(ngModel)] ="currentUser.pays" name="pays">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputPostal">Code postal</label>
+                                        <input type="number" class="form-control" id="postal" [(ngModel)] ="currentUser.postal" name="postal">
+                                    </div>
+                                </div>
+                                <button type="button" (click)="onSubmit()" name="submit" class="btn btn-primary">Save changes</button>
+                            </form>
+
+                        </div>
+                    </div>
+                     </div>
+              
+
+
+                   <div class="tab-pane fade" id="password" role="tabpanel">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Mot de passe</h5>
+
+                            <form [formGroup]="formPass">
+
+
+
+ 
+                                <div class="form-group">
+
+                                    <label for="inputPassword">Mot de passe actuel</label>
+                                  <div class="input-group">
+                                    <input  [type]="fieldTextType ? 'text' : 'password'" class="form-control"  [(ngModel)] ="currentUser.password" [ngModelOptions]="{standalone: true}"
+                                  />
+                                   <div class="input-group-append">
+                                
+                                 </div>
+                                 
+                                  </div>
+                                  <small><a href="#">mot de passe oublié ?</a></small>
+
+                                  </div>
+                                
+
+
+
+
+
+
+
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="email">Nouveau Mot de passe</label>
+                                      <div class="input-group">
+                                        <input  [type]="fieldTextType ? 'text' : 'password'" class="form-control"  [(ngModel)] ="currentUser.password" [ngModelOptions]="{standalone: true}"
+                                        />
+                                       <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i
+                                            class="fa"
+                                            [ngClass]="{
+                                              'fa-eye-slash': !fieldTextType,
+                                              'fa-eye': fieldTextType
+                                            }"
+                                            (click)="toggleFieldTextType()"
+                                          ></i>                </span>
+                                     </div>
+                                      </div>
+                                      </div>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPasswordNew">Confirmer nouveau mot de passe</label>
+                                    <div class="form-group">
+                                      <div class="input-group">
+                                        <input
+                                        [type]="fieldTextType ? 'text' : 'ccpassword'"
+                                        class="form-control"
+                                        formControlName="ccpassword"
+                                      />
+                                       <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i
+                                            class="fa"
+                                            [ngClass]="{
+                                              'fa-eye-slash': !fieldTextType,
+                                              'fa-eye': fieldTextType
+                                            }"
+                                            (click)="toggleFieldTextType()"
+                                          ></i>                </span>
+                                     </div>
+                                      </div>
+                                      </div>
+                                                                     
+                                </div>
+                             
+                                <button type="button" (click)="onSubmit()" name="submit" class="btn btn-primary">Save changes</button>
+                            
+                            </form> 
+
+                        </div>
+                    </div>
+             
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+

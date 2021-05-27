@@ -1,0 +1,252 @@
+ <app-header-style-one></app-header-style-one>
+
+
+
+
+
+
+<section class="checkout-area ptb-100">
+  <div class="container">
+      <div class="user-actions">
+          <i class='bx bx-log-in'></i>
+          <span>Comprendre le concept ?<a routerLink="/online-schooling">Cliquer ici</a></span>
+      </div>
+
+
+      <form [formGroup]="cvForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+              <div class="col-lg-6 col-md-12">
+                  <div class="billing-details">
+                      <h3 class="title">Informations Personnelles</h3>
+
+                      <div class="row">
+                         
+                      
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Cin<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="cin" formControlName="cinCand" name="cin">
+                            </div>
+                        </div>
+
+
+                          <div class="col-lg-6 col-md-6">
+                              <div class="form-group">
+                                  <label>Nom <span class="required">*</span></label>
+                                  <input type="text" class="form-control" id="nomCand" formControlName="nomCand" name="nomCand">
+                                </div>
+                          </div>
+
+                          <div class="col-lg-6 col-md-6">
+                              <div class="form-group">
+                                  <label>Prenom<span class="required">*</span></label>
+                                  <input type="text" class="form-control" id="prenomCand" formControlName="prenomCand" name="prenomCand">
+                                </div>
+                          </div>
+
+                          <div class="col-lg-6 col-md-6">
+                              <div class="form-group">
+                                  <label>Téléphone</label>
+                                  <input type="number" class="form-control" id="telephoneCand"  formControlName="telephoneCand" name="telephoneCand">
+                              </div>
+                          </div>
+                          <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Email<span class="required">*</span></label>
+                                <input type="email" class="form-control" id="emailCand"  formControlName="emailCand" name="emailCand">
+                              </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Adresse<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="adresseCand"  formControlName="adresseCand" name="adresseCand">
+                              </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Ville<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="villeCand"  formControlName="villeCand" name="villeCand">
+                              </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Pays<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="pays"  formControlName="paysCand" name="pays">
+                              </div>
+                        </div>
+                  
+                        
+                        
+
+               
+
+<br><br>
+
+
+
+                          <h3 class="title">Cursus Universitaire   </h3>
+
+
+
+                       
+                       <div class="row">   
+                                           <div class="form-group col-md-4">
+                                  <label>Diplôme<span class="required">*</span></label>
+                                  <input type="text" class="form-control" id="dilomeCand"  formControlName="dilomeCand" name="dilomeCand">
+                                </div>
+              
+                     
+                            <div class="form-group col-md-3">
+                                <label>Université <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="universiteCand"  formControlName="universiteCand" name="universiteCand">     
+                             </div>
+                   
+
+                            <div class="form-group col-md-3">
+                                <label>Année <span class="required">*</span></label>
+                                <input type="Date" class= "form-control" id="duree1"  formControlName="duree1" name="duree1">                           
+                            
+                            </div>
+                        
+                         
+                                  <div class="col-md-2">
+                                     <span  ><i class="fa fa-plus" style="color: var(--mainColor);"></i></span>
+                                     </div>
+                                     
+                        </div>  
+
+                     
+
+                     
+                            
+                                
+
+
+
+                          <div class="col-md-12">
+                              <div class="form-group">
+                                  <label>Certification <span class="required">*</span></label>
+                                  <input type="text" class="form-control"  id="ceritificationCand"  formControlName="ceritificationCand" name="ceritificationCand">
+                                </div>
+                          </div>
+
+
+
+
+
+                          <div class="form-row">
+
+
+                          <div class="col-lg-5 col-md-12">
+                              <div class="form-group">
+                                  <label>Stages <span class="required">*</span></label>
+                                  <input type="text" class="form-control" id="stageCand"  formControlName="stageCand" name="stageCand">
+                              </div>
+                          </div>
+
+                          <div class="col-lg-5 col-md-12">
+                              <div class="form-group">
+                                  <label>Societe <span class="required">*</span></label>
+                                  <input type="text" min="0" class="form-control" id="societeStaCand"  formControlName="societeStaCand" name="societeStaCand">
+                              </div>
+                          </div>
+                    
+
+
+
+</div>
+
+
+
+
+
+
+
+           <br><br>
+                          
+                          <h3 class="title">Cursus Professionnelle</h3>
+
+
+                          <div class="col-lg-12 col-md-6">
+                            <div class="form-group">
+                                <label>Société<span class="required">*</span></label>
+                                <input type="text" class="form-control" id="societeProCand"  formControlName="societeProCand" name="societeProCand">
+                              </div>
+                        </div>
+
+                          
+                          <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label> Poste <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="posteProCand"  formControlName="posteProCand" name="posteProCand">
+                            </div>
+                        </div>
+
+                          
+               
+
+                <div class="col-lg-6 col-md-6">
+                  <div class="form-group">
+                      <label>Durée <span class="required">*</span></label>
+                      <input type="date" class="form-control" id="dureeProCand"  formControlName="dureeProCand" name="dureeProCand">
+                    </div>
+              </div>
+
+                          <!-- <div class="col-lg-12 col-md-12">
+                              <div class="form-check">
+                                  <input type="checkbox" class="form-check-input" id="create-an-account">
+                                  <label class="form-check-label" for="create-an-account">Disponible </label>
+                              </div>
+                          </div> -->
+
+                
+
+                          <div class="col-lg-12 col-md-12">
+                              <div class="form-group">
+                                  <textarea name="notes" id="notes" cols="30" rows="5" placeholder="Autres" class="form-control"></textarea>
+                              </div>
+                          </div>
+
+                          
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-6 col-md-12">
+                  <div class="order-details">
+                      <h3 class="title">Importer vos fichiers</h3>
+
+                     
+
+                      <div class="payment-box">
+                          <div class="payment-method">
+                              <p>
+                                  <input type="radio" id="direct-bank-transfer" name="radio-group" checked>
+                                  <label for="direct-bank-transfer">Curriculum Vitae</label>
+
+                              </p>
+                              <p>
+                                  <input type="radio" id="paypal" name="radio-group">
+                                  <label for="paypal">lettre de motivation</label>
+                              </p>
+                              <p>
+                                  <input type="radio" id="cash-on-delivery" name="radio-group">
+                                  <label for="cash-on-delivery">Autres</label>
+                              </p>
+                          </div>
+                          <br><br>
+
+                          <br><br>
+
+                          
+
+
+
+                          
+                          <button type="submit" class="default-btn"><i class='bx bx-paper-plane icon-arrow before'></i><span class="label">Valider</span><i class="bx bx-paper-plane icon-arrow after"></i></button>
+                      </div>
+                  </div>
+              </div>
+
+              </div></form></div></section>

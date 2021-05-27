@@ -1,0 +1,272 @@
+<app-header-style-one></app-header-style-one>
+
+
+<div>
+    <div class="courses-categories-slides owl-carousel owl-theme">
+     
+        <!-- <div class="single-categories-courses-box mb-30">
+            <div class="icon">
+                <img src=".\assets\img\bel-homme-affaires-costume-lunettes-croise-poitrine-bras-regarde_176420-21750.jpg">
+            </div>
+            <h3>MOHAMED Ali</h3>
+            <span>mohamed.ali@gmail.com</span>
+            <br><br>
+    
+    
+            <a routerLink="/single-products" class="default-btn">
+                <i class='bx bx-show-alt icon-arrow before'></i><span class="label">Mon profil </span><i class="bx bx-show-alt icon-arrow after"></i></a>
+
+            
+        </div> -->
+    
+    </div></div>
+
+<!-- <div class="page-title-area item-bg2 jarallax" data-jarallax='{"speed": 0.3}'>
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a href="index.html">Acceuil</a></li>
+                <li>Assistance</li>
+            </ul>
+            <h2>Les Questions fréquentes </h2>
+        </div>
+    </div>
+</div> -->
+
+
+
+<section class="become-instructor-partner-area">
+    <div class="container-fluid">
+        <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                 <div class="become-instructor-partner-image bg-image2 jarallax" data-jarallax='{"speed": 0.3}'>
+                    <img src="assets/img/ bel-homme-affaires-costume-lunettes-croise-poitrine-bras-regarde_176420-21750.jpg" alt="image">
+                </div> 
+            </div>
+
+            <div class="col-lg-6 col-md-6" *ngFor="let recruteur of recruteurs">
+                <div class="become-instructor-partner-content">
+                    <h2>{{recruteur.nom}} {{recruteur.prenom}}</h2>
+                    <p>{{recruteur.poste}}<br> {{recruteur.email}}</p>
+                    <a routerLink="/login" class="default-btn"> <i class='bx bx-show-alt icon-arrow before'></i><span class="label">Mon Profil</span> <i class='bx bx-show-alt icon-arrow after'></i></a>
+               &nbsp; &nbsp;
+               <a routerLink="/candidateList" class="default-btn"> <i class='bx bx-show-alt icon-arrow before'></i><span class="label">Candidates</span> <i class='bx bx-show-alt icon-arrow after'></i></a> 
+
+               
+
+
+
+               <button (click)="updateRecruteur(recruteur.id)" class="btn btn-info">Update Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<app-candidate-affich></app-candidate-affich>
+
+
+<!-- <app-candidate-list></app-candidate-list> -->
+
+
+
+
+
+<!-- 
+
+
+
+<section class="cart-area ptb-100">
+    <div class="container">
+               
+            <div class="courses-topbar">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-4">
+                
+                    </div>
+    
+                    <div class="col-lg-8 col-md-8">
+                        <div class="topbar-ordering-and-search">
+                            <div class="row align-items-center">
+                                <div class="col-lg-3 col-md-5 offset-lg-4 offset-md-1 col-sm-6">
+                                    <div class="topbar-ordering">
+                                        <select>
+                                            <option>Filtrer par </option>
+                                            <option>région</option>
+                                            <option>domaine</option>
+                                            <option>années d'expérience</option>
+                                            <option>Nouvelles</option>
+                                        </select>
+                                    </div>
+                                </div>
+    
+                                <div class="col-lg-5 col-md-6 col-sm-6">
+                                    <div class="topbar-search">
+                                        <form>
+                                            <label><i class="bx bx-search"></i></label>
+                                            <input type="text" class="input-search" placeholder="Search here...">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+
+
+
+
+
+
+
+
+
+        <br><br><br>
+        
+        <form>
+            <div class="cart-table table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Nom</th>
+               
+
+                            <th scope="col">Profession</th>
+                            <th scope="col">Années d'expérience</th>
+                            <th scope="col">Email </th>
+
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr *ngFor="let candidate1 of candidates1">
+                            <td class="product-thumbnail">
+                                <a routerLink="/single-products">
+                                    <img src="{{candidate1?.imageUrl}}" alt="item"  style="width: 100px; clip-path: ellipse(40% 60%);">
+                                </a>
+                            </td>
+                            <td class="product-name">
+                                <a routerLink="/single-products">{{candidate1?.name}}</a>
+                            </td>
+                            <td class="product-price">
+                                <span class="unit-amount">{{candidate1?.jobTitle}}</span>
+                            </td>
+                            <td class="product-quantity">
+                                <div class="input-counter">
+                                    <input type="text" value="{{candidate1.phone}}" >
+                                </div>
+                                
+                            </td>
+                            <td class="product-subtotal">
+                                <span class="subtotal-amount"><a href="/my-dashboard">Consulter </a></span>
+                                <a routerLink="/cart" class="favori"><i class="fa fa-heart"></i></a>
+                            </td>
+                        </tr> 
+                        <tr *ngFor="let candidate of candidates">
+                            <td class="product-thumbnail">
+                                <a routerLink="/single-products">
+                                    <img src=".\assets\img\2.jpg" alt="item" width="50%" height="50%">
+                                </a>
+                            </td>
+                            <td class="product-name">
+                                <a routerLink="/single-products">{{candidate.nom}} &nbsp;{{candidate.prenom}}</a>
+                            </td>
+                            <td class="product-price">
+                                <span><td>  {{ candidate.poste }} </td></span>
+                            </td>
+                            <td class="product-quantity">
+                                <div class="input-counter">
+                                    <input type="text" min="1" value="3">
+                                </div>
+                            </td>
+                            <td class="product-subtotal">
+                                <span class="subtotal-amount"><a href="/cv"> {{ candidate.emailId }} </a></span>
+                                <a routerLink="/cart" class="favori"><i class="fa fa-heart"></i></a>
+                            </td>
+
+                            <td>  {{ candidate.certification }} </td>
+                            
+                            <td>  {{ candidate.stage }} </td>
+                            
+                            <td>  {{ candidate.poste }} </td>
+                        </tr>
+                        <tr>
+                            <td class="product-thumbnail">
+                                <a routerLink="/single-products">
+                                    <img src="assets/img/shop/shop3.jpg" alt="item">
+                                </a>
+                            </td>
+                            <td class="product-name">
+                                <a routerLink="/single-products">Riri Amie</a>
+                            </td>
+                            <td class="product-price">
+                                <span class="unit-amount">Femme d'affaires</span>
+                            </td>
+                            <td class="product-quantity">
+                                <div class="input-counter">
+                                <span class="minus-btn"><i class='bx bx-minus'></i></span> 
+                                    <input type="text" min="1" value="8">
+                               <span class="plus-btn"><i class='bx bx-plus'></i></span>
+                                </div>
+                            </td>
+                            <td class="product-subtotal">
+                                <span class="subtotal-amount"><a href="/cv">Consulter </a></span>
+                                <a routerLink="/cart" class="favori"><i class="fa fa-heart"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="product-thumbnail">
+                                <a routerLink="/single-products">
+                                    <img src="assets/img/shop/shop4.jpg" alt="item">
+                                </a>
+                            </td>
+                            <td class="product-name">
+                                <a routerLink="/single-products">Nounou nounou</a>
+                            </td>
+                            <td class="product-price">
+                                <span class="unit-amount">Femme d'affaires</span>
+                            </td>
+                            <td class="product-quantity">
+                                <div class="input-counter">
+                                    <input type="text" min="1" value="15">
+                                </div>
+                            </td>
+                            <td class="product-subtotal">
+                                <span class="subtotal-amount"><a href="/cv">Consulter </a></span>
+                                <a routerLink="/cart" class="favori"><i class="fa fa-heart"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cart-buttons">
+                <div class="row align-items-center">
+                 
+
+                    <div class="col-lg-12 col-sm-5 col-md-5 text-right">
+                        <a routerLink="/cart" class="default-btn"><i class="fa fa-heart icon-arrow before"></i><span class="label">Liste des Favoris</span><i class="fa fa-heart icon-arrow after"></i></a>
+                    </div>
+                </div>
+            </div>
+
+       
+        </form>
+    </div>
+</section>
+
+
+ -->
+
+
+
+
+
+

@@ -1,0 +1,434 @@
+<!-- <div>
+  
+
+    <div  *ngIf="authService.isAuthenticated()">
+      <div *ngFor="let user of users">
+
+      
+            <h2>{{user.username}} </h2>
+            <p>{{user.email}}<br> </p>
+
+
+       
+       <a type="button" href="/user/{{user.id}}"> <span class="label">go to me</span>
+   
+      </a> 
+    </div>
+    </div>
+</div> -->
+
+
+
+
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-light">
+
+  
+   <a href="/"><img src="assets/img/logo.png" width="150px" height="150px"></a> 
+            
+    
+ 
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" style="color: red;">
+          <a class="nav-link" href="#">Espace candidate <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Espace Recruteur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Actualités</a>
+        </li>
+      </ul>
+    </div>
+    <button class="btn btn-md btn-outline-dark" (click)="open(content)"> 
+      <i class="fa fa-user"></i> Nouvelle Candidate</button>
+      &nbsp;&nbsp;
+    <form class="form-inline my-2 my-lg-0">
+<input type="search" (ngModelChange)="searchUser(key1.value)" name="search1" #key1="ngModel" ngModel  class="input-search" placeholder="recherche...">
+    </form>
+
+    
+    
+</nav>
+<br><br><br><br>
+
+<div class="container" id="main-container">
+<div class="row">
+<div   class="col-lg-12">
+  <div class="main-box clearfix">
+    <div class="table-responsive">
+      <table class="table user-list">
+        
+        <thead>
+          <tr>
+            <th><span>Candidate</span></th>
+            <th><span>Date de creation</span></th>
+            <th class="text-center"><span>Etat</span></th>
+            <th><span>Email</span></th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody >
+          <ng-container *ngFor="let user of users" >
+           <tr >
+            <!-- [ngclass]="{'list-group-item':true, 'list-group-item-success': etat === 'valide' }" -->
+            <td>
+              <img src="{{user?.imageUrl}}" alt="">
+              <a href="#" class="user-link">{{user.userName}}</a>
+              <!-- <span class="user-subhead">{{user?.poste}}</span> -->
+            </td>
+           <td>
+              {{user.created}}
+     
+            </td> 
+<!--             
+          <td class="text-center">
+              <span class="label label-default">{{user.etat}}<a href="/user/{{user.id}}"></a></span>
+            </td> -->
+
+            <td>
+                <span class="label label-default">{{user.etat}}<a href="/user/{{user.id}}"></a></span>
+
+                
+       </td>
+
+
+      
+            <td>
+              <a href="#">{{user?.email}}</a>
+            </td>
+
+
+            <td>
+              <!-- <button class="btn btn-sm btn-info" (click)="openDetails(contentDetails, user)">
+                <i class="fa fa-search"></i>Details</button> -->
+              
+              <button class="btn btn-sm btn-danger">
+                <i class="fa fa-times-circle"></i></button>
+&nbsp; &nbsp;
+                <button class="btn btn-sm btn-success"  (click)="ValiderCompte(user)"><i class="fa fa-check-square"></i></button>
+              </td>
+
+
+              
+              
+
+<!-- Go to RecruteurProfile  <a type="button" href="/recruteur/{{recruteur.id}}" (click)="ValiderRec()">Approuver</a> -->
+<!-- 
+<td>
+  <div class="row">
+
+    <label class="switch">
+    <input type="checkbox" [(ngModel)]>
+    <span class="slider round"></span>
+    </label>
+</div>
+</td>
+            -->
+
+
+
+</tr>
+          
+
+      </ng-container> 
+        </tbody>
+      </table>
+
+
+<!-- 
+      <td *ngIf="user.etat==='valide'" style="color: rgba(14, 165, 0, 0.938);">
+
+ -->
+
+
+
+
+      
+    </div>
+    <!-- <ul class="pagination pull-right">
+      <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+    </ul> -->
+  </div>
+</div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+<ng-template #content let-modal>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Nouveau User</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+
+
+  <div class="form-group">
+    <label for="cin">Cin</label>
+    <div class="input-group">
+      <input id="cin" class="form-control" name="cin" ngModel>
+    </div>
+    </div>
+
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <div class="input-group">
+    <input id="nom" class="form-control"  name="nom" ngModel>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">Prenom</label>
+    <div class="input-group">
+      <input id="prenom" class="form-control"  name="prenom" ngModel>
+    </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="email">Email</label>
+    <div class="input-group">
+      <input id="email" class="form-control"  name="email" ngModel >
+    </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="telephone">Telephone</label>
+    <div class="input-group">
+      <input id="telephone" class="form-control"  name="telephone" ngModel >
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="poste">Poste</label>
+    <div class="input-group">
+      <input id="poste" class="form-control"  name="poste" ngModel >
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="societe">Societe</label>
+    <div class="input-group">
+      <input id="societe" class="form-control"  name="societe" ngModel>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="recruteurCode">RecruteurCode</label>
+    <div class="input-group">
+      <input id="recruteurCode" class="form-control" name="recruteurCode" ngModel >
+    </div>
+    </div>
+
+    <div class="border text-center">
+    <button data-dismiss="modal" class="btn btn-info">Submit</button>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+</div>
+</ng-template>
+
+
+                                    <!-- detailsssOPTIOn -->
+
+
+
+<ng-template #contentDetails let-modal>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title1">Details de Recruteur</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+
+
+  <div class="form-group">
+    <label for="cin">Cin</label>
+    <div class="input-group">
+      <input id="cinE" class="form-control" readonly>
+    </div>
+    </div>
+
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <div class="input-group">
+    <input id="nomE" class="form-control" readonly>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">Prenom</label>
+    <div class="input-group">
+      <input id="prenomE" class="form-control" readonly>
+    </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="email">Email</label>
+    <div class="input-group">
+      <input id="emailE" class="form-control" readonly>
+    </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="telephone">Telephone</label>
+    <div class="input-group">
+      <input id="telephoneE" class="form-control" readonly>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="poste">Poste</label>
+    <div class="input-group">
+      <input id="posteE" class="form-control" readonly>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="societe">Societe</label>
+    <div class="input-group">
+      <input id="societeE" class="form-control" readonly>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="recruteurCode">RecruteurCode</label>
+    <div class="input-group">
+      <input id="recruteurCodeE" class="form-control" readonly>
+    </div>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+</div>
+</ng-template>
+
+
+
+
+
+
+
+
+<ng-template #contentEdit let-modal>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Recruteur Modifié</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="editForm" novalidate>
+
+
+
+  <div class="form-group">
+    <label for="cin">Cin</label>
+    <div class="input-group">
+      <input formControlName="cin"  class="form-control">
+    </div>
+    </div>
+
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <div class="input-group">
+    <input formControlName="nom"  class="form-control" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="prenom">Prenom</label>
+    <div class="input-group">
+      <input formControlName="prenom" class="form-control" >
+    </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="email">Email</label>
+    <div class="input-group">
+      <input formControlName="email" class="form-control" >
+    </div>
+    </div>
+
+
+    <div class="form-group">
+    <label for="telephone">Telephone</label>
+    <div class="input-group">
+      <input formControlName="telephone" class="form-control">
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="poste">Poste</label>
+    <div class="input-group">
+      <input formControlName="poste" class="form-control" >
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="societe">Societe</label>
+    <div class="input-group">
+      <input formControlName="societe" class="form-control" >
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="recruteurCode">RecruteurCode</label>
+    <div class="input-group">
+      <input formControlName="recruteurCode" class="form-control">
+    </div>
+    </div>
+
+    <div class="border text-center">
+    <button data-dismiss="modal" class="btn btn-info">Sauvegarder</button>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+</div>
+</ng-template>
+
+
+
+
+<!-- 
+<div *ngFor="let user of users">
+<div *ngIf="user.role == 'candidate'">
+
+    {{user.email}}
+  </div>
+
+
+</div> -->

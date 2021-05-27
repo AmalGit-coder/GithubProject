@@ -1,0 +1,93 @@
+<!-- <form id="contact-form">
+
+<div class="messages"></div>
+
+<div class="controls">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="form_name">Name *</label>
+                <input [(ngModel)]="emailNotification.name" id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your full name *" required="required" data-error="name is required.">
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="form_need">Please specify your need *</label>
+            <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                <option value="Email">Email</option>
+                <option value="Whatsapp notification">Whatsapp notification</option>
+                <option value="SMS notification">SMS notification</option>
+            </select>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6" >
+            <div class="form-group">
+                <label for="form_email">Email Address *</label>
+                <input [(ngModel)]="emailNotification.email" id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-success btn-send" value="Send message" (click)="onSubmit()">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-muted">
+                <strong>*</strong> These fields are required. 
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+<body>
+  
+
+  <div class="container" style="width: 400px; margin-top: 20px;">
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="connect">Make Connection:</label>
+        <button id="connect" class="btn btn-default" type="button" [disabled]="!disabled" (click)="connect()">Connect</button>
+        <button id="disconnect" class="btn btn-default" type="submit" [disabled]="disabled" (click)="disconnect()">Disconnect</button>
+      </div>
+    </form>
+
+    <form class="form-inline" style="margin-top: 20px;">
+      <div class="form-group">
+        <label for="name">User's Name:</label>
+        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="name" />
+      </div>
+      <button id="send" class="btn btn-default" type="button" (click)="sendName()">Send</button>
+    </form>
+
+    <table id="conversation" class="table table-striped" style="margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Greetings</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let greeting of greetings">
+        <tr>
+          <td>{{greeting}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</body>
+

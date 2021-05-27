@@ -1,0 +1,68 @@
+<!-- 
+<div class="container">
+<form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+<h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+<div class="form-group">
+<label for="inputEmail" class="sr-only">Email</label>
+<input type="text" id="inputEmail" [formControlName]="'email'" class="form-control" placeholder="Email" required="" autofocus="">
+</div>
+ 
+     <div class="form-group">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" [formControlName]="'password'"
+     class="form-control" placeholder="Password" required="" autofocus="">
+  
+     </div>
+
+<button class="btn btn-lg btn-primary btn-block" type="submit" >Sign IN</button>
+
+
+</form>
+
+
+</div> -->
+
+
+
+<section class="login-area">
+     <div class="row m-0">
+         
+ 
+         <div class="col-lg-12 col-md-12 p-0">
+             <div class="login-content">
+                 <div class="d-table">
+                     <div class="d-table-cell">
+                         <div class="login-form">
+                             <div class="logo">
+                                 <a routerLink="/"><img src="assets/img/logo.png" alt="image" width="260px" height="260px"></a>
+                             </div>
+ 
+                             <h4>Se connecter </h4>
+ 
+                             <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                                 <div class="form-group">
+
+                                   <label for="inputEmail" class="sr-only"></label>
+                                   <input type="email" id="inputEmail" [formControlName]="'email'" class="form-control" placeholder="Entrez votre adresse email" required="" autofocus="">
+
+                                 </div>
+                                 <div class="form-group">
+                                   <label for="inputPassword" class="sr-only"></label>
+                                   <input type="password" id="inputPassword" [formControlName]="'password'"
+                                    class="form-control" placeholder="Entre votre mot de passe" required="" autofocus="">
+                                                                  </div>
+                                 <button type="submit">Se Connecter</button>
+                                 <div class="forgot-password">
+                                     <a routerLink="/">mot de passe oublié ?</a>
+                                 </div>
+
+                                 <p>Vous n'avez pas de compte ? <a routerLink="/register">s'inscrire</a></p>
+
+                                  </form>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>

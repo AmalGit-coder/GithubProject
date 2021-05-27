@@ -1,0 +1,123 @@
+<app-header-style-one></app-header-style-one>
+
+<div class="page-title-area item-bg1 jarallax" data-jarallax='{"speed": 0.3}'>
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Courses</li>
+            </ul>
+            <h2>Courses List</h2>
+        </div>
+    </div>
+</div>
+
+<section class="courses-area ptb-100">
+    <div class="container">
+        <div class="courses-topbar">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-4">
+                    <div class="topbar-result-count" *ngIf="authService.isAuthenticated()">
+                        <p><a href="/add-post" class="new-post">Créer un blog</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-8">
+                    <div class="topbar-ordering-and-search">
+                        <div class="row align-items-center">
+                            <div class="col-lg-3 col-md-5 offset-lg-4 offset-md-1">
+                                <div class="topbar-ordering">
+                                    <select>
+                                        <option>Sort by popularity</option>
+                                        <option>Sort by latest</option>
+                                        <option>Default sorting</option>
+                                        <option>Sort by rating</option>
+                                        <option>Sort by new</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 col-md-6">
+                                <div class="topbar-search">
+                                    <form>
+                                        <label><i class="bx bx-search"></i></label>
+                                        <input type="text" class="input-search" placeholder="Search here...">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                         <div class="single-courses-list-box mb-30" *ngFor="let post of posts">
+                            <div class="box-item">
+                                <div class="courses-image">
+                                    <div class="image bg-1">
+                                        <img src="{{post?.imageBlog}}" #fileUpload1 class="rounded-circle mr-2" alt="image">
+                       
+
+
+
+                                        <a routerLink="/single-courses" class="link-btn"></a>
+                                        <div class="courses-tag">
+                                            <a routerLink="/courses-list" class="d-block">{{post.type}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="courses-desc">
+                                    <div class="courses-content">
+                                        <div class="course-author d-flex align-items-center">
+                                            <img src="assets/img/user1.jpg" class="rounded-circle mr-2" alt="image">
+                                            <span>{{post.username}}</span>
+                                            {{post.email}}
+                                        </div>
+                                        <h3><a class="d-inline-block">{{post.title}}</a></h3>
+                                   
+                                        <p>{{post.content}} ...</p>
+                                    </div>
+        
+                                    <div class="courses-box-footer">
+                                        <ul>
+                                            <li class="students-number">
+                                            </li>
+                                            <li class="courses-lesson">
+                                            </li>
+                                            <li  class="courses-price">
+                                                <a class="linkstyle" type="button" href="/post/{{post.id}}">
+                                                      Lire la suite </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="pagination-area text-center">
+                            <span class="page-numbers current" aria-current="page">1</span>
+                            <a routerLink="/courses-list" class="page-numbers">2</a>
+                            <a routerLink="/courses-list" class="page-numbers">3</a>
+                            <a routerLink="/courses-list" class="page-numbers">4</a>
+                            <a routerLink="/courses-list" class="page-numbers">5</a>
+                            <a routerLink="/courses-list" class="next page-numbers"><i class='bx bx-chevron-right'></i></a>
+                        </div>
+                    </div> ->
+                    
+                </div>
+            </div>
+
+            
+        </div>
+
+    </div>
+
+    
+</section>
