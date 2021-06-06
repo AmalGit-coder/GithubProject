@@ -1,6 +1,4 @@
-
-
-
+<app-header-style-one></app-header-style-one>
 
 <div class="container">
     <div class="row align-items-center">
@@ -13,14 +11,14 @@
                         <li class="list-inline-item">
 
 <div class="courses-topbar">
-    <div class="row align-items-center">
+    <div class="row align-items-center"> 
         <div class="col-lg-12 col-md-12">
             <div class="topbar-ordering-and-search">
                     <div>
                         <div class="topbar-search">
                             <form class="form-group">
                                 <label><i class="bx bx-search"></i></label>
-                                <input type="search" (ngModelChange)="searchUser(key.value)" name="search" #key="ngModel" ngModel  class="input-search" placeholder="Search here...">
+                                <input type="search" (ngModelChange)="searchCandidates(key1.value)" name="search1" #key1="ngModel" ngModel  class="input-search" placeholder="Recherche...">
 
                             </form>
                         </div>
@@ -50,14 +48,14 @@
                             </div>
                         </a>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
-                            <div class="card-body p-0">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input all-select" id="customCheckAll">
+                            <div class="card-body p-0" > 
+                                <div class="custom-control custom-checkbox" >
+                                    <input type="checkbox"  (ngModelChange)="filterChange()" class="custom-control-input all-select" id="customCheckAll">
                                     <label class="custom-control-label ml-1 text-muted f-15" for="customCheckAll">Tunis</label>
                                 </div>
 
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input all-select" id="customCheck22">
+                                <div class="custom-control custom-checkbox" >
+                                    <input type="checkbox"  class="custom-control-input all-select" id="customCheck22">
                                     <label class="custom-control-label ml-1 text-muted f-15" for="customCheck22">Sousse</label>
                                 </div>
 
@@ -243,6 +241,7 @@
                 <div class="list-grid-item mt-4 p-2"  *ngFor="let user of users"  >
                    
                      
+                    
 
                     <div class="row" >
                         <div class="col-md-9">

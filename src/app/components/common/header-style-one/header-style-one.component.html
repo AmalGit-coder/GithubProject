@@ -24,8 +24,17 @@
 
                 <div class="col-lg-9 col-lg-9" >
                     <div class="top-header-btn"  *ngIf="authService.isAuthenticated()">
+                        <div *ngIf="currentUser.role==='recruteur'">
+                        <a routerLink="/loc" class="default-btn"  ><i class="bx bx-plus-circle icon-arrow before"></i><span class="label">Liste des candidates</span><i class="bx bx-plus-circle icon-arrow after"></i></a>
+                         </div>
+                         <div *ngIf="currentUser.role==='candidate'">
                         <a routerLink="/deposer-cv" class="default-btn"  ><i class="bx bx-plus-circle icon-arrow before"></i><span class="label">Déposer CV</span><i class="bx bx-plus-circle icon-arrow after"></i></a>
+                         </div>
+                         <div *ngIf="currentUser.role==='moderateur'">
+                            <a routerLink="/appo" class="default-btn"  ><i class="bx bx-plus-circle icon-arrow before"></i><span class="label">Gérer TWE</span><i class="bx bx-plus-circle icon-arrow after"></i></a>
+                          </div>
                     </div>
+                
                 </div>
 
                 <!-- <div *ngIf="authService.isAuthenticated()" >

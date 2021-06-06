@@ -86,7 +86,8 @@ import { CandidateAffichComponent } from './candidate-affich/candidate-affich.co
 import { MonCompteComponent } from './UserProfil/mon-compte/mon-compte.component';
 import { ListeOfCandidateComponent } from './liste-of-candidate/liste-of-candidate.component';
 import { MonCVComponent } from './cv/mon-cv/mon-cv.component';
-import { NotificationComponent } from './notif/notification/notification.component';
+import { ListeOfRecruteurComponent } from './liste-of-recruteur/liste-of-recruteur.component';
+import { AppSocketComponent } from './webSocket/app-socket/app-socket.component';
 
 
 
@@ -162,9 +163,9 @@ const routes: Routes = [
 
  
 {path: 'appo', component: AppoComponent},
-{path: 'notif', component: NotificationComponent},
+ 
 
-
+{ path: 'socket', component: AppSocketComponent},
 //empty
 {path: 'recruteurOne', component: RecruteurOneComponent},
 
@@ -187,6 +188,7 @@ const routes: Routes = [
 {path:'okk', component: CandidateAffichComponent},
 
 {path: 'loc', component:ListeOfCandidateComponent},
+{path: 'lor', component:ListeOfRecruteurComponent},
 
 {path: 'user/:id', component: ProfilCandidateComponent},
 

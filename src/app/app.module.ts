@@ -168,9 +168,8 @@ import { MonCVComponent } from './cv/mon-cv/mon-cv.component';
 import { UploadFilesComponent } from './file/upload-files/upload-files.component';
 
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NotificationComponent } from './notif/notification/notification.component';
-
-
+import { ListeOfRecruteurComponent } from './liste-of-recruteur/liste-of-recruteur.component';
+import { AppSocketComponent } from './webSocket/app-socket/app-socket.component';
 
 
 
@@ -326,9 +325,9 @@ MyDashboardPageComponent,
 
     MonCVComponent,
       UploadFilesComponent,
-      NotificationComponent,
-
-  ],
+      ListeOfRecruteurComponent,
+      AppSocketComponent,
+        ],
   
   imports: [
     BrowserModule,
@@ -364,7 +363,10 @@ FormsModule,
 
 
   ],
-  providers: [RecruteurService,
+  providers: 
+  [RecruteurService,
+
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
@@ -375,7 +377,7 @@ FormsModule,
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
-        providers: [
+        providers:[
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
@@ -388,10 +390,12 @@ FormsModule,
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    }, 
+  
 
 
 ],
+
 
   bootstrap: [AppComponent]
 })

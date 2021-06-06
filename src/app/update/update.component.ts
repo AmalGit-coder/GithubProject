@@ -100,14 +100,6 @@ export class UpdateComponent implements OnInit {
      
 
 
-        // getColor(){
-        //   if(this.etat === 'true' ){
-        //     return 'green';
-        //   } else if(this.etat === 'false'){
-        //     return 'red';
-        //   }
-        // }
-
 
     // ValiderCompte(c: RegisterPayload){
     //   this.authService.ValideCompte(c , c.id).subscribe(
@@ -128,27 +120,30 @@ export class UpdateComponent implements OnInit {
     //     });}
 
 
+    public searchCandidates(key1: string):void {
+
+      const results1: RegisterPayload[] = [];
+      for (const candidate of this.users){
+        if(candidate.email.toLowerCase().indexOf(key1.toLocaleLowerCase()) !== -1 
+        || candidate.poste.toLowerCase().indexOf(key1.toLocaleLowerCase()) !== -1
+        ||candidate.adresse.toLowerCase().indexOf(key1.toLocaleLowerCase()) !== -1
+        ||candidate.experience.toLowerCase().indexOf(key1.toLocaleLowerCase()) !== -1
+
+        ){
+          results1.push(candidate);
+        }
+      }
+      
+      this.users = results1;
+      if(results1.length === 0 || !key1){
+        this.getUsers();
+        
+      }
+      
+      }
 
 
 
-   public searchUser(key1: string):void {
-
-     const results1: RegisterPayload[] = [];
-     for (const user of this.users){
-       if(user.username.toLowerCase().indexOf(key1.toLocaleLowerCase()) !== -1
-       || user.email.toLowerCase().indexOf(key1.toLocaleLowerCase()) !== -1
-       ){
-         results1.push(user);
-       }
-     }
-
-     this.users = results1;
-     if(results1.length === 0 || !key1){
-       this.getUsers();
-
-     }
-
-     }
 
 
 

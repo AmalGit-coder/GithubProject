@@ -1,25 +1,27 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import * as Stomp from 'stompjs';
+//import * as Stomp from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
+import { RegisterPayload } from 'src/app/authentif/register-payload';
 
+import Stomp from "stompjs"
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.scss']
+  selector: 'app-app-socket',
+  templateUrl: './app-socket.component.html',
+  styleUrls: ['./app-socket.component.scss']
 })
-export class NotificationComponent implements OnInit {
+export class AppSocketComponent implements OnInit {
+
 
   greetings: string[] = [];
   disabled = true;
-  name: string;
+  user: RegisterPayload;
+  email: string;
   private stompClient = null;
 
+  
+  
   constructor() { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   setConnected(connected: boolean) {
     this.disabled = !connected;
@@ -30,7 +32,7 @@ export class NotificationComponent implements OnInit {
   }
 
   connect() {
-    const socket = new SockJS('http://localhost:8080/gkz-stomp-endpoint');
+    const socket = new SockJS('http://localhost:8080/twe-stomp-endpoint');
     this.stompClient = Stomp.over(socket);
 
     const _this = this;
@@ -55,13 +57,18 @@ export class NotificationComponent implements OnInit {
 
   sendName() {
     this.stompClient.send(
-      '/gkz/hello',
+      '/twe/hello',
       {},
-      JSON.stringify({ 'name': this.name })
+      JSON.stringify({ 'email': this.email })
     );
   }
 
   showGreeting(message) {
     this.greetings.push(message);
+  }
+
+
+  ngOnInit(){
+    
   }
 }

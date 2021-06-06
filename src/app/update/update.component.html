@@ -21,11 +21,19 @@
 
 
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-light">
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
 
   
    <a href="/"><img src="assets/img/logo.png" width="150px" height="150px"></a> 
             
-    
+    &nbsp;    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
+
  
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
@@ -43,12 +51,13 @@
         </li>
       </ul>
     </div>
-    <button class="btn btn-md btn-outline-dark" (click)="open(content)"> 
-      <i class="fa fa-user"></i> Nouvelle Candidate</button>
+    <!-- <button class="btn btn-md btn-outline-dark" (click)="open(content)"> 
+      <i class="fa fa-user"></i> Nouvelle Candidate</button> -->
       &nbsp;&nbsp;
     <form class="form-inline my-2 my-lg-0">
-<input type="search" (ngModelChange)="searchUser(key1.value)" name="search1" #key1="ngModel" ngModel  class="input-search" placeholder="recherche...">
-    </form>
+      <input type="search" (ngModelChange)="searchCandidates(key1.value)" name="search1" #key1="ngModel" ngModel  class="input-search" placeholder="Recherche...">
+  
+</form>
 
     
     
@@ -74,20 +83,15 @@
         <tbody >
           <ng-container *ngFor="let user of users" >
            <tr >
-            <!-- [ngclass]="{'list-group-item':true, 'list-group-item-success': etat === 'valide' }" -->
             <td>
               <img src="{{user?.imageUrl}}" alt="">
               <a href="#" class="user-link">{{user.userName}}</a>
-              <!-- <span class="user-subhead">{{user?.poste}}</span> -->
             </td>
            <td>
               {{user.created}}
      
             </td> 
-<!--             
-          <td class="text-center">
-              <span class="label label-default">{{user.etat}}<a href="/user/{{user.id}}"></a></span>
-            </td> -->
+
 
             <td>
                 <span class="label label-default">{{user.etat}}<a href="/user/{{user.id}}"></a></span>

@@ -1,37 +1,26 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterEvent } from '@angular/router';
 import { AuthService } from '../authentif/auth.service';
 import { RegisterPayload } from '../authentif/register-payload';
-import { User } from '../Register/user';
 
 @Component({
-  selector: 'app-liste-of-candidate',
-  templateUrl: './liste-of-candidate.component.html',
-  styleUrls: ['./liste-of-candidate.component.scss']
+  selector: 'app-liste-of-recruteur',
+  templateUrl: './liste-of-recruteur.component.html',
+  styleUrls: ['./liste-of-recruteur.component.scss']
 })
-export class ListeOfCandidateComponent implements OnInit {
+export class ListeOfRecruteurComponent implements OnInit {
 
+
+
+  
   users: RegisterPayload[];
 
   user: RegisterPayload;
 
-  count: 0;  
+  count: 0;
+   
 
-  filter = { tunis: true, sousse: true, sfax: true };
-  filteredProducts: RegisterPayload[] = [];
-
-  
-  filterChange() {
-    this.filteredProducts = this.users.filter(x => 
-       (x.adresse === 'sfax' )
-       || (x.adresse === 'tunis')
-       || (x.adresse === 'sousse')
-    );
-  }
-
-
-  
 
   constructor(private http: HttpClient, private authService: AuthService,
     private router: Router) { }
@@ -44,7 +33,7 @@ export class ListeOfCandidateComponent implements OnInit {
     this.authService.getUsers().subscribe(
       (response: RegisterPayload[]) => {
         this.users = response.filter(
-          user => user.role ==='candidate' && user.etat ==='valide')
+          user => user.role ==='recruteur' && user.etat ==='valide')
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -56,6 +45,13 @@ export class ListeOfCandidateComponent implements OnInit {
 
 
 
+
+
+
+
+
+
+ 
   public searchCandidates(key1: string):void {
 
     const results1: RegisterPayload[] = [];
@@ -77,8 +73,11 @@ export class ListeOfCandidateComponent implements OnInit {
     }
     
     }
+  
 
-   
+
+
+    
     AllActualities(): void {
 
       this.authService.getUsers()
@@ -92,8 +91,12 @@ export class ListeOfCandidateComponent implements OnInit {
         error => {
           console.log(error);
         });
-          }
-      public isValid(){
+    
+    
+      }
+
+
+public isValid(){
       if(this.isValid){
         return true;
       } else {
@@ -101,14 +104,6 @@ export class ListeOfCandidateComponent implements OnInit {
   
       }
       }
-
-
-      // filter by checkbox aside
-
-
-    
-  
-
 
 
 
